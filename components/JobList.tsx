@@ -18,25 +18,29 @@ interface Job {
 }
 
 async function getJobs(): Promise<Job[]> {
-  const res = await fetch("http://localhost:3000/api/jobs", {
-    cache: "no-store",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch jobs");
+  const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";
+  const response = await fetch(`${baseUrl}/api/jobs`);
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`);
   }
-  return res.json();
+  return response.json();
 }
 
 const JobList = async () => {
-  const jobs = await getJobs();
+  try {
+    const jobs = await getJobs();
 
-  return (
-    <div className="space-y-16 my-16">
-      {jobs.map((job) => (
-        <JobCard key={job.id} {...job} />
-      ))}
-    </div>
-  );
+    return (
+      <div className="space-y-16 my-16">
+        {jobs.map((job) => (
+          <JobCard key={job.id} {...job} />
+        ))}
+      </div>
+    );
+  } catch (error) {
+    console.error("Error fetching jobs:", error);
+    return <div>Unable to load jobs at this time.</div>;
+  }
 };
 
 export default JobList;

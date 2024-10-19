@@ -1,11 +1,11 @@
 import Header from "@/components/Header";
-import JobCard from "@/components/JobCard";
+import JobList from "@/components/JobList";
 
 export default function Home() {
   return (
     <>
       <Header />
-      <JobCard />
+      <JobList />
     </>
   );
 }

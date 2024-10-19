@@ -1,7 +1,9 @@
 import React from "react";
 import Image from "next/image";
 
+// JobCard Component
 interface JobCardProps {
+  id: number;
   company: string;
   logo: string;
   new: boolean;
@@ -17,7 +19,12 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = (props) => {
-  const tags = [props.role, props.level, ...props.languages, ...props.tools];
+  const tags = [
+    props.role,
+    props.level,
+    ...(props.languages ?? []),
+    ...(props.tools ?? []),
+  ];
 
   return (
     <div
@@ -82,5 +89,6 @@ const JobCard: React.FC<JobCardProps> = (props) => {
     </div>
   );
 };
+
 
 export default JobCard;
