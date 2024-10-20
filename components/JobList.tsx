@@ -16,6 +16,7 @@ interface Job {
   languages: string[];
   tools: string[];
 }
+//util jobs.ts and import in this component
 
 async function getJobs(): Promise<Job[]> {
   const baseUrl = process.env.NEXT_PUBLIC_API_URL || "";

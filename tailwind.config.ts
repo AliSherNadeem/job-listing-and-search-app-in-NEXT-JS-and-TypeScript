@@ -12,6 +12,7 @@ const config: Config = {
         background: "var(--background)",
         foreground: "var(--foreground)",
         "dark-cyan": "hsl(180, 29%, 50%)",
+        "light-cyan": "hsl(180, 52%, 96%)",
         "Light-Grayish-Cyan": "hsl(180, 31%, 95%)",
         "Dark-Grayish-Cyan": "hsl(180, 8%, 52%)",
         "Very-Dark-Grayish-Cyan": "hsl(180, 14%, 20%)",

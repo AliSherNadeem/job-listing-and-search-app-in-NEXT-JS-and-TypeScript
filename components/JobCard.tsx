@@ -28,7 +28,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
 
   return (
     <div
-      className={`bg-white shadow-md rounded-md w-full max-w-[1110px] m-auto p-6 mt-14 md:mt-6 md:flex md:items-center md:justify-between ${
+      className={`bg-white shadow-md rounded-md w-full max-w-[1110px]  ml-4 mr-4 p-6 mt-14 md:m-auto md:mt-6 md:flex md:items-center md:justify-between ${
         props.featured ? "border-l-4 border-dark-cyan" : ""
       }`}
     >
@@ -54,7 +54,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
               </span>
             )}
             {props.featured && (
-              <span className="rounded-full bg-very-dark-grayish-cyan text-white px-2 py-1 text-xs uppercase">
+              <span className="rounded-full bg-Very-Dark-Grayish-Cyan text-white px-2 py-1 text-xs uppercase">
                 Featured
               </span>
             )}
@@ -64,7 +64,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
             {props.position}
           </h2>
 
-          <div className="flex items-center text-dark-grayish-cyan text-sm">
+          <div className="flex items-center text-gray-500 text-sm">
             <span>{props.postedAt}</span>
             <span className="mx-2">•</span>
             <span>{props.contract}</span>
@@ -80,7 +80,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
         {tags.map((tag, index) => (
           <span
             key={index}
-            className="bg-light-grayish-cyan-background text-dark-cyan font-bold px-2 py-1 rounded cursor-pointer hover:bg-dark-cyan hover:text-white"
+            className="bg-light-cyan text-dark-cyan font-bold px-2 py-1 rounded cursor-pointer hover:bg-dark-cyan hover:text-white"
           >
             {tag}
           </span>
@@ -89,6 +89,5 @@ const JobCard: React.FC<JobCardProps> = (props) => {
     </div>
   );
 };
-
 
 export default JobCard;
