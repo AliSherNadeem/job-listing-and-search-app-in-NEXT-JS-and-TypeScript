@@ -1,7 +1,8 @@
+"use client";
 import React from "react";
 import Image from "next/image";
+import { useFilter } from '../context/FilterContext';
 
-// JobCard Component
 interface JobCardProps {
   id: number;
   company: string;
@@ -19,6 +20,7 @@ interface JobCardProps {
 }
 
 const JobCard: React.FC<JobCardProps> = (props) => {
+  const { addTag } = useFilter();
   const tags = [
     props.role,
     props.level,
@@ -28,7 +30,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
 
   return (
     <div
-      className={`bg-white shadow-md rounded-md w-full max-w-[1110px]  ml-4 mr-4 p-6 mt-14 md:m-auto md:mt-6 md:flex md:items-center md:justify-between ${
+      className={`bg-white shadow-md rounded-md w-full max-w-[1110px] ml-4 mr-4 p-6 mt-14 md:m-auto md:mt-6 md:flex md:items-center md:justify-between ${
         props.featured ? "border-l-4 border-dark-cyan" : ""
       }`}
     >
@@ -80,6 +82,7 @@ const JobCard: React.FC<JobCardProps> = (props) => {
         {tags.map((tag, index) => (
           <span
             key={index}
+            onClick={() => addTag(tag)}
             className="bg-light-cyan text-dark-cyan font-bold px-2 py-1 rounded cursor-pointer hover:bg-dark-cyan hover:text-white"
           >
             {tag}
